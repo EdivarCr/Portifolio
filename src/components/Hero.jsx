@@ -39,14 +39,14 @@ function Hero() {
       id="home"
       data-section-id="home"
       data-section-theme="home"
-      className="snap-section min-h-dvh pt-[var(--navbar-height)] flex flex-col justify-between max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16"
+      className="snap-section min-h-dvh pt-[var(--navbar-height)] flex flex-col justify-between max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:pl-14 lg:pr-24 xl:px-16"
     >
-      {/* Espaçador superior para equilibrar verticalmente */}
-      <div className="hidden md:block h-8" aria-hidden="true" />
+      {/* Espaçador superior para equilibrar verticalmente em telas médias/grandes */}
+      <div className="hidden md:block h-6 lg:h-8" aria-hidden="true" />
 
-      {/* Conteúdo principal editorial */}
-      <div className="my-auto py-12 md:py-16 lg:ml-[18%] max-w-4xl">
-        <p className="reveal-up text-meta-editorial uppercase tracking-[0.16em] text-[var(--current-secondary)] mb-5">
+      {/* Conteúdo principal editorial (Mobile-First) */}
+      <div className="my-auto py-8 sm:py-12 md:py-16 lg:ml-[10%] xl:ml-[18%] max-w-4xl">
+        <p className="reveal-up text-xs sm:text-meta-editorial uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[var(--current-secondary)] mb-4 sm:mb-5">
           Engenharia de Software (UFC) &bull; Backend, Full Stack &amp; IA
         </p>
 
@@ -55,7 +55,7 @@ function Hero() {
         </h1>
 
         <div
-          className="reveal-up reveal-delay-2 mt-3 md:mt-4 min-h-[5.5rem] sm:min-h-[6.5rem] lg:min-h-[8.5rem] flex items-start"
+          className="reveal-up reveal-delay-2 mt-3 md:mt-4 min-h-[6.75rem] sm:min-h-[6.5rem] lg:min-h-[8.5rem] flex items-start"
           aria-live="polite"
         >
           <p
@@ -74,16 +74,16 @@ function Hero() {
       </div>
 
       {/* Informações inferiores da primeira tela */}
-      <div className="reveal-up reveal-delay-3 border-t border-[var(--current-border)] py-6 md:py-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div className="reveal-up reveal-delay-3 border-t border-[var(--current-border)] py-5 sm:py-6 md:py-8 flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-6">
         <div className="flex flex-col gap-2">
           <span className="text-xs uppercase tracking-[0.14em] text-[var(--current-secondary)]">
             Contato
           </span>
 
-          <div className="flex flex-wrap items-center gap-6 text-meta-editorial">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-6 text-meta-editorial">
             <a
               href="mailto:edivarfilho16@gmail.com"
-              className="group inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
+              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
             >
               <span>Email</span>
               <span
@@ -98,7 +98,7 @@ function Hero() {
               href="https://www.linkedin.com/in/edivar-cruz-carvalho-filho-7121b7265"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
+              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
             >
               <span>LinkedIn</span>
               <span
@@ -113,7 +113,7 @@ function Hero() {
               href="https://github.com/EdivarCr"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
+              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
             >
               <span>GitHub</span>
               <span
@@ -128,7 +128,7 @@ function Hero() {
               href="http://lattes.cnpq.br/6502231174315309"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
+              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
             >
               <span>Lattes</span>
               <span
@@ -141,11 +141,11 @@ function Hero() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between sm:justify-end gap-8 text-meta-editorial text-[var(--current-secondary)]">
+        <div className="flex items-center justify-between sm:justify-end gap-6 sm:gap-8 text-meta-editorial text-[var(--current-secondary)]">
           <span>Quixadá, CE &bull; Brasil</span>
           <a
             href="#projects"
-            className="hidden sm:inline-flex items-center gap-2 text-[var(--current-text)] opacity-75 hover:opacity-100 transition-opacity"
+            className="inline-flex items-center gap-2 text-[var(--current-text)] opacity-75 hover:opacity-100 transition-opacity py-1"
           >
             <span>Explorar projetos</span>
             <span aria-hidden="true">↓</span>

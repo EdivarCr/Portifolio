@@ -14,10 +14,10 @@ function getCanUseCustomCursor() {
   return hasFinePointer && !prefersReducedMotion;
 }
 
-function CustomCursor({ activeTheme = "home" }) {
+function CustomCursor({ activeTheme = "home", colorMode = "light" }) {
   const cursorRef = useRef(null);
   const [enabled, setEnabled] = useState(getCanUseCustomCursor);
-  const isDarkTheme = activeTheme === "contact";
+  const isDarkSurface = colorMode === "dark" || activeTheme === "contact";
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -130,8 +130,8 @@ function CustomCursor({ activeTheme = "home" }) {
       aria-hidden="true"
       style={{ opacity: 0 }}
       className={`fixed top-0 left-0 z-50 w-5 h-5 rounded-full pointer-events-none transition-[background-color,opacity,border-color] duration-300 ${
-        isDarkTheme
-          ? "bg-[#F7F7F7]/85 data-[hovering=true]:bg-[#F7F7F7]/25 data-[hovering=true]:border data-[hovering=true]:border-[#F7F7F7]/70"
+        isDarkSurface
+          ? "bg-[#F7F7F7]/85 data-[hovering=true]:bg-[#8B9AFF]/25 data-[hovering=true]:border data-[hovering=true]:border-[#8B9AFF]/70"
           : "bg-[#171717]/80 data-[hovering=true]:bg-[#5757B8]/20 data-[hovering=true]:border data-[hovering=true]:border-[#5757B8]/60"
       }`}
     />

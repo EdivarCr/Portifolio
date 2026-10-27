@@ -12,9 +12,9 @@
 }
 
 :root {
-  --navbar-height: 80px;
+  --navbar-height: 68px;
 
-  /* Paleta Base */
+  /* Paleta Base (Modo Claro) */
   --bg-base: #F7F7F7;
   --text-primary: #171717;
   --text-secondary: #777777;
@@ -22,7 +22,7 @@
   --bg-dark: #121214;
   --accent: #5757B8;
 
-  /* Cores Dinâmicas das Seções */
+  /* Cores Dinâmicas das Seções (Modo Claro) */
   --bg-home: #F7F7F7;
   --bg-agil: #E6F0EA;
   --bg-probator: #F2EDE5;
@@ -35,52 +35,103 @@
   --current-text: var(--text-primary);
   --current-secondary: var(--text-secondary);
   --current-border: var(--border-subtle);
+  --current-surface: rgba(255, 255, 255, 0.72);
+  --current-surface-header: rgba(255, 255, 255, 0.88);
 
   /* Curva padrão de movimento */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Temas semânticos por seção ativa */
-[data-theme="home"] {
-  --current-bg: var(--bg-home);
+/* Temas semânticos por seção ativa — MODO CLARO */
+[data-color-mode="light"][data-theme="home"] {
+  --current-bg: #F7F7F7;
   --current-text: #171717;
   --current-secondary: #6E6E6E;
   --current-border: #D8D8D8;
 }
 
-[data-theme="agil"] {
-  --current-bg: var(--bg-agil);
+[data-color-mode="light"][data-theme="agil"] {
+  --current-bg: #E6F0EA;
   --current-text: #141C17;
   --current-secondary: #55645B;
   --current-border: #C7D6CD;
 }
 
-[data-theme="probator"] {
-  --current-bg: var(--bg-probator);
+[data-color-mode="light"][data-theme="probator"] {
+  --current-bg: #F2EDE5;
   --current-text: #1C1915;
   --current-secondary: #686157;
   --current-border: #D8D0C4;
 }
 
-[data-theme="sigbro"] {
-  --current-bg: var(--bg-sigbro);
+[data-color-mode="light"][data-theme="sigbro"] {
+  --current-bg: #E9EDF6;
   --current-text: #141821;
   --current-secondary: #565F70;
   --current-border: #CAD2E2;
 }
 
-[data-theme="about"] {
-  --current-bg: var(--bg-about);
+[data-color-mode="light"][data-theme="about"] {
+  --current-bg: #F7F7F7;
   --current-text: #171717;
   --current-secondary: #6E6E6E;
   --current-border: #D8D8D8;
 }
 
-[data-theme="contact"] {
-  --current-bg: var(--bg-footer);
+[data-color-mode="light"][data-theme="contact"] {
+  --current-bg: #121214;
   --current-text: #F7F7F7;
   --current-secondary: #9E9EA6;
   --current-border: #2A2A2E;
+}
+
+/* Temas semânticos por seção ativa — MODO ESCURO (preservando identidade cromática sutil por seção) */
+[data-color-mode="dark"] {
+  --accent: #8B9AFF;
+  --current-surface: rgba(255, 255, 255, 0.045);
+  --current-surface-header: rgba(255, 255, 255, 0.08);
+}
+
+[data-color-mode="dark"][data-theme="home"] {
+  --current-bg: #111113;
+  --current-text: #F3F3F5;
+  --current-secondary: #9E9EA8;
+  --current-border: #26262B;
+}
+
+[data-color-mode="dark"][data-theme="agil"] {
+  --current-bg: #101814;
+  --current-text: #EEF5F0;
+  --current-secondary: #94A89B;
+  --current-border: #213028;
+}
+
+[data-color-mode="dark"][data-theme="probator"] {
+  --current-bg: #171411;
+  --current-text: #F5F1EB;
+  --current-secondary: #A89F93;
+  --current-border: #2E2923;
+}
+
+[data-color-mode="dark"][data-theme="sigbro"] {
+  --current-bg: #10141D;
+  --current-text: #EEF2FA;
+  --current-secondary: #949FB1;
+  --current-border: #222A3A;
+}
+
+[data-color-mode="dark"][data-theme="about"] {
+  --current-bg: #111113;
+  --current-text: #F3F3F5;
+  --current-secondary: #9E9EA8;
+  --current-border: #26262B;
+}
+
+[data-color-mode="dark"][data-theme="contact"] {
+  --current-bg: #0B0B0D;
+  --current-text: #F7F7F7;
+  --current-secondary: #9E9EA6;
+  --current-border: #242429;
 }
 
 /* Único contêiner principal de rolagem (html/window) */
@@ -92,6 +143,12 @@ html {
   background-color: var(--bg-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --navbar-height: 80px;
+  }
 }
 
 /* Scroll Snap ativo no desktop quando há altura suficiente */
@@ -113,7 +170,7 @@ body {
   color: var(--current-text);
 }
 
-/* Contêiner com transição suave de cor de fundo (700ms) */
+/* Contêiner com transição suave de cor de fundo (720ms) */
 .theme-surface {
   background-color: var(--current-bg);
   color: var(--current-text);

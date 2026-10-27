@@ -1,16 +1,22 @@
-function SectionIndicator({ sections = [], activeIndex = 0, onSelectSection }) {
+function SectionIndicator({
+  sections = [],
+  activeIndex = 0,
+  onSelectSection,
+  colorMode = "light",
+}) {
   if (!sections.length) return null;
 
   const currentNumber = String(activeIndex + 1).padStart(2, "0");
   const totalNumber = String(sections.length).padStart(2, "0");
   const activeSection = sections[activeIndex] || sections[0];
-  const isDarkTheme = activeSection?.theme === "contact";
+  const isDarkSurface =
+    colorMode === "dark" || activeSection?.theme === "contact";
 
   return (
     <aside
       aria-label="Indicador de seções da página"
       className={`hidden lg:flex fixed right-5 xl:right-8 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-4 select-none transition-colors duration-700 ${
-        isDarkTheme ? "text-[#F7F7F7]" : "text-[var(--current-text)]"
+        isDarkSurface ? "text-[#F7F7F7]" : "text-[var(--current-text)]"
       }`}
     >
       {/* Contador numérico dinâmico (ex: 02 / 06) */}

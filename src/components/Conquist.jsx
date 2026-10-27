@@ -80,13 +80,13 @@ function Conquistas() {
   return (
     <div
       id="conquistas"
-      className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-16"
+      className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:pl-14 lg:pr-24 xl:px-16 py-8 sm:py-10 md:py-14"
     >
       <div className="border-t border-[var(--current-border)]">
         {conquistas.map((grupo) => (
           <div
             key={grupo.categoria}
-            className="reveal-up grid grid-cols-1 lg:grid-cols-[28%_1fr] gap-8 lg:gap-14 xl:gap-16 border-b border-[var(--current-border)] py-10 md:py-14"
+            className="reveal-up grid grid-cols-1 lg:grid-cols-[28%_1fr] gap-6 sm:gap-8 lg:gap-12 xl:gap-16 border-b border-[var(--current-border)] py-8 sm:py-10 md:py-14"
           >
             {/* Coluna do título da categoria à esquerda */}
             <div>
@@ -95,17 +95,17 @@ function Conquistas() {
               </h3>
             </div>
 
-            {/* Área dos itens distribuídos em 3 colunas no desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10 lg:pl-12 xl:pl-14">
+            {/* Mobile-First: 1 col no celular, 2 cols no tablet/notebook compacto, 3 cols no monitor */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-8 sm:gap-y-10 lg:pl-10 xl:pl-14">
               {grupo.itens.map((item) => (
-                <article key={item.titulo} className="space-y-2">
+                <article key={item.titulo} className="space-y-1.5 sm:space-y-2">
                   {item.periodo && (
                     <p className="text-xs uppercase tracking-[0.12em] text-[var(--current-secondary)]">
                       {item.periodo}
                     </p>
                   )}
 
-                  <h4 className="text-lg font-normal text-[var(--current-text)]">
+                  <h4 className="text-base sm:text-lg font-normal text-[var(--current-text)]">
                     {item.titulo}
                   </h4>
 
