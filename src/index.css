@@ -1,11 +1,224 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #f8f8f8;
-  --color-primary: #8b9aff;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-background: #F7F7F7;
+  --color-primary: #171717;
+  --color-secondary: #777777;
+  --color-border: #D8D8D8;
+  --color-dark: #121214;
+  --color-accent: #5757B8;
   --color-surface: #171717;
 }
 
+:root {
+  --navbar-height: 80px;
+
+  /* Paleta Base */
+  --bg-base: #F7F7F7;
+  --text-primary: #171717;
+  --text-secondary: #777777;
+  --border-subtle: #D8D8D8;
+  --bg-dark: #121214;
+  --accent: #5757B8;
+
+  /* Cores Dinâmicas das Seções */
+  --bg-home: #F7F7F7;
+  --bg-agil: #E6F0EA;
+  --bg-probator: #F2EDE5;
+  --bg-sigbro: #E9EDF6;
+  --bg-about: #F7F7F7;
+  --bg-footer: #121214;
+
+  /* Estado Cromático Ativo */
+  --current-bg: var(--bg-home);
+  --current-text: var(--text-primary);
+  --current-secondary: var(--text-secondary);
+  --current-border: var(--border-subtle);
+
+  /* Curva padrão de movimento */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Temas semânticos por seção ativa */
+[data-theme="home"] {
+  --current-bg: var(--bg-home);
+  --current-text: #171717;
+  --current-secondary: #6E6E6E;
+  --current-border: #D8D8D8;
+}
+
+[data-theme="agil"] {
+  --current-bg: var(--bg-agil);
+  --current-text: #141C17;
+  --current-secondary: #55645B;
+  --current-border: #C7D6CD;
+}
+
+[data-theme="probator"] {
+  --current-bg: var(--bg-probator);
+  --current-text: #1C1915;
+  --current-secondary: #686157;
+  --current-border: #D8D0C4;
+}
+
+[data-theme="sigbro"] {
+  --current-bg: var(--bg-sigbro);
+  --current-text: #141821;
+  --current-secondary: #565F70;
+  --current-border: #CAD2E2;
+}
+
+[data-theme="about"] {
+  --current-bg: var(--bg-about);
+  --current-text: #171717;
+  --current-secondary: #6E6E6E;
+  --current-border: #D8D8D8;
+}
+
+[data-theme="contact"] {
+  --current-bg: var(--bg-footer);
+  --current-text: #F7F7F7;
+  --current-secondary: #9E9EA6;
+  --current-border: #2A2A2E;
+}
+
+/* Único contêiner principal de rolagem (html/window) */
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll Snap ativo no desktop quando há altura suficiente */
+@media (min-width: 1024px) and (min-height: 680px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
 body {
-  background-color: var(--color-background);
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--current-bg);
+  color: var(--current-text);
+}
+
+/* Contêiner com transição suave de cor de fundo (700ms) */
+.theme-surface {
+  background-color: var(--current-bg);
+  color: var(--current-text);
+  transition:
+    background-color 720ms var(--ease-out-expo),
+    color 720ms var(--ease-out-expo),
+    border-color 720ms var(--ease-out-expo);
+}
+
+/* Hierarquia Tipográfica Fluida (clamp) */
+.text-hero-greeting {
+  font-size: clamp(2.25rem, 4.5vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.text-hero-phrase {
+  font-size: clamp(1.875rem, 4vw, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.text-project-title {
+  font-size: clamp(1.625rem, 2.3vw, 2.375rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-body-editorial {
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+.text-meta-editorial {
+  font-size: clamp(0.875rem, 0.95vw, 1.0625rem);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.text-footer-headline {
+  font-size: clamp(2.125rem, 4.2vw, 4.125rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+/* Microinterações de entrada durante o scroll */
+.reveal-up {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 620ms var(--ease-out-expo),
+    transform 620ms var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 90ms;
+}
+
+.reveal-delay-2 {
+  transition-delay: 180ms;
+}
+
+.reveal-delay-3 {
+  transition-delay: 270ms;
+}
+
+/* Estados de foco acessíveis por teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Suporte integral a movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+    scroll-snap-type: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

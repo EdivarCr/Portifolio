@@ -1,73 +1,118 @@
 function Footer() {
-    return (
-        <footer
-            id="contact"
-            className="bg-zinc-950 text-zinc-100 px-8 py-16"
-        >
-            <div className="
-        max-w-7xl mx-auto
-        min-h-[420px]
-        flex flex-col justify-between
-        gap-20
-      ">
+  return (
+    <footer
+      id="contact"
+      data-section-id="contact"
+      data-section-theme="contact"
+      className="snap-section min-h-dvh pt-[var(--navbar-height)] bg-[#121214] text-[#F7F7F7] flex flex-col justify-between"
+    >
+      <div className="max-w-[1440px] w-full mx-auto flex-1 flex flex-col justify-between px-6 md:px-12 lg:px-16 py-14 md:py-20 gap-16">
+        {/* Topo do Rodapé */}
+        <div className="reveal-up lg:ml-[28%] my-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <span
+              aria-hidden="true"
+              className="w-3 h-3 bg-[#F7F7F7] rounded-full inline-block"
+            />
+            <span className="text-xs uppercase tracking-[0.16em] text-[#9E9EA6]">
+              Contato &bull; Disponível para oportunidades e projetos
+            </span>
+          </div>
 
-                {/* Apresentação */}
-                <div className="lg:ml-[25%]">
-                    <div className="w-8 h-8 bg-white rounded-full mb-6" />
+          <h2 className="text-footer-headline max-w-3xl text-[#F7F7F7]">
+            Vamos transformar ideias em soluções reais?
+          </h2>
+        </div>
 
-                    <h2 className="
-            text-4xl md:text-6xl
-            font-normal
-            tracking-tight leading-tight
-            max-w-3xl
-          ">
-                        Vamos transformar ideias em
-                        soluções reais?
-                    </h2>
-                </div>
+        {/* Links de Contato e Direitos */}
+        <div className="reveal-up reveal-delay-1 border-t border-white/15 pt-10 lg:ml-[28%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-meta-editorial">
+          <div>
+            <a
+              href="mailto:edivarfilho16@gmail.com"
+              className="group inline-flex items-center gap-1.5 text-[#F7F7F7] hover:text-[#8b9aff] transition-colors duration-300"
+            >
+              <span>Entre em contato</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              >
+                ↗
+              </span>
+            </a>
 
-                {/* Contatos */}
-                <div className="
-          grid grid-cols-1 md:grid-cols-3
-          gap-8 lg:ml-[25%]
-        ">
+            <p className="text-[#9E9EA6] mt-1.5 text-sm break-all">
+              edivarfilho16@gmail.com
+            </p>
+          </div>
 
-                    <div>
-                        <a
-                            href="mailto:seuemail@exemplo.com"
-                            className="hover:text-indigo-300 transition-colors"
-                        >
-                            Entre em contato ↗
-                        </a>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/edivar-cruz-carvalho-filho-7121b7265"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-[#F7F7F7] hover:text-[#8b9aff] transition-colors duration-300"
+            >
+              <span>LinkedIn</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              >
+                ↗
+              </span>
+            </a>
 
-                        <p className="text-zinc-400 mt-1">
-                            seuemail@exemplo.com
-                        </p>
-                    </div>
+            <p className="text-[#9E9EA6] mt-1.5 text-sm">
+              Edivar Cruz
+            </p>
+          </div>
 
-                    <div>
-                        <a
-                            href="https://www.linkedin.com/in/seu-perfil/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-indigo-300 transition-colors"
-                        >
-                            LinkedIn ↗
-                        </a>
+          <div>
+            <a
+              href="https://github.com/EdivarCr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-[#F7F7F7] hover:text-[#8b9aff] transition-colors duration-300"
+            >
+              <span>GitHub</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              >
+                ↗
+              </span>
+            </a>
 
-                        <p className="text-zinc-400 mt-1">
-                            Meu perfil
-                        </p>
-                    </div>
+            <p className="text-[#9E9EA6] mt-1.5 text-sm">
+              github.com/EdivarCr
+            </p>
+          </div>
 
-                    <p className="text-zinc-400 md:text-right">
-                        © {new Date().getFullYear()}
-                    </p>
-
-                </div>
+          <div className="sm:text-right flex flex-col justify-between">
+            <div>
+              <a
+                href="http://lattes.cnpq.br/6502231174315309"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center sm:justify-end gap-1.5 text-[#F7F7F7] hover:text-[#8b9aff] transition-colors duration-300"
+              >
+                <span>Currículo Lattes</span>
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  ↗
+                </span>
+              </a>
             </div>
-        </footer>
-    );
+
+            <p className="text-[#9E9EA6] mt-1.5 text-sm">
+              © {new Date().getFullYear()} &bull; Quixadá, CE
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
