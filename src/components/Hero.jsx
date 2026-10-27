@@ -1,9 +1,49 @@
 import { useState, useEffect } from "react";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaRegEnvelope,
+  FaGraduationCap,
+} from "react-icons/fa";
 
 const frases = [
   "Desenvolvo soluções para problemas reais.",
   "Transformo ideias em produtos digitais.",
   "Construo aplicações web e APIs.",
+];
+
+const linksContatoHero = [
+  {
+    label: "Email",
+    href: "mailto:edivarfilho16@gmail.com",
+    Icon: FaRegEnvelope,
+    external: false,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/edivar-cruz-carvalho-filho-7121b7265",
+    Icon: FaLinkedin,
+    external: true,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/EdivarCr",
+    Icon: FaGithub,
+    external: true,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/edivarcr/",
+    Icon: FaInstagram,
+    external: true,
+  },
+  {
+    label: "Lattes",
+    href: "http://lattes.cnpq.br/6502231174315309",
+    Icon: FaGraduationCap,
+    external: true,
+  },
 ];
 
 function Hero() {
@@ -81,63 +121,27 @@ function Hero() {
           </span>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-6 text-meta-editorial">
-            <a
-              href="mailto:edivarfilho16@gmail.com"
-              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <span>Email</span>
-              <span
-                aria-hidden="true"
-                className="text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            {linksContatoHero.map(({ label, href, Icon, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className="group py-1 inline-flex items-center gap-2 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
               >
-                ↗
-              </span>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/edivar-cruz-carvalho-filho-7121b7265"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <span>LinkedIn</span>
-              <span
-                aria-hidden="true"
-                className="text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              >
-                ↗
-              </span>
-            </a>
-
-            <a
-              href="https://github.com/EdivarCr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <span>GitHub</span>
-              <span
-                aria-hidden="true"
-                className="text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              >
-                ↗
-              </span>
-            </a>
-
-            <a
-              href="http://lattes.cnpq.br/6502231174315309"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group py-1 inline-flex items-center gap-1.5 text-[var(--current-text)] hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <span>Lattes</span>
-              <span
-                aria-hidden="true"
-                className="text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              >
-                ↗
-              </span>
-            </a>
+                <Icon
+                  aria-hidden="true"
+                  className="w-4 h-4 text-[var(--current-secondary)] group-hover:text-[var(--accent)] transition-colors duration-300 shrink-0"
+                />
+                <span>{label}</span>
+                <span
+                  aria-hidden="true"
+                  className="text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  ↗
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
